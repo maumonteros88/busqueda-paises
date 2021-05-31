@@ -1,0 +1,23 @@
+{
+  "name": "busqueda-paises",
+  "version": "1.0.0",
+  "description": "App para buscar paises",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maumonteros88/busqueda-paises.git"
+  },
+  "author": "Monteros Jorge Mauricio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maumonteros88/busqueda-paises/issues"
+  },
+  "homepage": "https://github.com/maumonteros88/busqueda-paises#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

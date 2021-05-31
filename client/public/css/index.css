@@ -1,0 +1,8 @@
+.result{
+  text-align:center;
+}
+
+.country-result:hover{
+  background-color:rgba(12, 12, 136, 0.925);
+  color:#fff;
+}
