@@ -4,8 +4,9 @@ const result = document.getElementById("result");
 const xhr = new XMLHttpRequest();
 
 country.addEventListener("keyup", () => {
-  // @ts-ignore
+  
   const search = country.value;
+
   if (search !== "") {
     xhr.addEventListener("load", () => {
       result.innerHTML = "";
@@ -13,15 +14,15 @@ country.addEventListener("keyup", () => {
       response.forEach((element) => {
         result.innerHTML += `<div class="container ">
           <div class="row">
-            <div class="col country-result" onClick="handleSelect('${element}')">${makeQueryBoldInResults(
-          element
-        )}</div> 
+            <div class="col country-result" onClick="handleSelect('${element}')">
+               ${makeQueryBoldInResults(element)}
+            </div> 
           </div>
         </div>`;
       });
     });
 
-    // @ts-ignore
+
     xhr.open("GET", `/buscar?country=${search}`);
     xhr.send();
   } else {
@@ -29,7 +30,7 @@ country.addEventListener("keyup", () => {
   }
 });
 
-// @ts-ignore
+
 const handleSelect = (searchResult) => (country.value = searchResult);
 
 const makeQueryBoldInResults = (queryResult) => {
