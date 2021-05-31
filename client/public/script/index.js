@@ -14,15 +14,19 @@ country.addEventListener("keyup", () => {
       loading.style.display = "none";
       const response = JSON.parse(xhr.responseText);
 
-      response.forEach((element) => {
-        result.innerHTML += `<div class="container ">
-          <div class="row">
-            <div class="col country-result" onClick="handleSelect('${element}')">
-               ${makeQueryBoldInResults(element)}
-            </div> 
-          </div>
-        </div>`;
-      });
+      if (response[0] === undefined) {
+        result.innerHTML = `<h1>No se encontraron resultados</h1>`;
+      } else {
+        response.forEach((element) => {
+          result.innerHTML += `<div class="container ">
+            <div class="row">
+              <div class="col country-result" onClick="handleSelect('${element}')">
+                 ${makeQueryBoldInResults(element)}
+              </div> 
+            </div>
+          </div>`;
+        });
+      }
     });
 
     xhr.open("GET", `/buscar?country=${search}`);
