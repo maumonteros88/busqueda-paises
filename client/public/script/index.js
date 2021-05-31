@@ -10,6 +10,7 @@ country.addEventListener("keyup", () => {
     xhr.addEventListener("load", () => {
       result.innerHTML = "";
       const response = JSON.parse(xhr.responseText);
+
       response.forEach((element) => {
         result.innerHTML += `<div class="container ">
           <div class="row">
@@ -32,12 +33,12 @@ const handleSelect = (searchResult) => (country.value = searchResult);
 
 const makeQueryBoldInResults = (queryResult) => {
   let countryInput = country.value.toLowerCase();
-  let query = queryResult.toLowerCase();
+  let queryLowerCase = queryResult.toLowerCase();
 
-  const firstPart = queryResult.slice(0, query.indexOf(countryInput));
-  const boldPart = `<strong>${countryInput}</strong>`;
+  const firstPart = queryResult.slice(0, queryLowerCase.indexOf(countryInput));
+  const boldPart = `<strong class="colorBold">${countryInput}</strong>`;
   const lastPart = queryResult.slice(
-    query.indexOf(countryInput) + countryInput.length
+    queryLowerCase.indexOf(countryInput) + countryInput.length
   );
 
   return firstPart + boldPart + lastPart;

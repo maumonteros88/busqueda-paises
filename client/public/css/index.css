@@ -3,7 +3,11 @@
 }
 
 .country-result:hover{
-  background-color:rgba(12, 12, 136, 0.925);
+  background-color:rgba(49, 49, 49, 0.925);
   color:#fff;
   cursor: pointer;
+}
+
+.colorBold{
+  color: red;
 }
