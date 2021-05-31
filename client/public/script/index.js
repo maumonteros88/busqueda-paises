@@ -13,9 +13,9 @@ country.addEventListener("keyup", () => {
       response.forEach((element) => {
         result.innerHTML += `<div class="container ">
           <div class="row">
-            <div class="col country-result" onClick="handleSelect('${element}')">${handleSearch(
+            <div class="col country-result" onClick="handleSelect('${element}')">${makeQueryBoldInResults(
           element
-        )}</strong></div> 
+        )}</div> 
           </div>
         </div>`;
       });
@@ -32,14 +32,14 @@ country.addEventListener("keyup", () => {
 // @ts-ignore
 const handleSelect = (searchResult) => (country.value = searchResult);
 
-const handleSearch = (searchResult) => {
+const makeQueryBoldInResults = (queryResult) => {
   let countryInput = country.value.toLowerCase();
-  let searchCountryResult = searchResult.toLowerCase();
+  let queryResultLowerCase = queryResult.toLowerCase();
 
-  return `${searchCountryResult.slice(
+  return `${queryResult.slice(
     0,
-    searchCountryResult.indexOf(countryInput)
-  )}<strong>${searchCountryResult.slice(
-    searchCountryResult.indexOf(countryInput)
+    queryResultLowerCase.indexOf(countryInput)
+  )}<strong>${countryInput}</strong>${queryResult.slice(
+    queryResultLowerCase.indexOf(countryInput) + countryInput.length
   )}`;
 };
