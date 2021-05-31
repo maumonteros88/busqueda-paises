@@ -4,7 +4,6 @@ const result = document.getElementById("result");
 const xhr = new XMLHttpRequest();
 
 country.addEventListener("keyup", () => {
-  
   const search = country.value;
 
   if (search !== "") {
@@ -22,7 +21,6 @@ country.addEventListener("keyup", () => {
       });
     });
 
-
     xhr.open("GET", `/buscar?country=${search}`);
     xhr.send();
   } else {
@@ -30,17 +28,17 @@ country.addEventListener("keyup", () => {
   }
 });
 
-
 const handleSelect = (searchResult) => (country.value = searchResult);
 
 const makeQueryBoldInResults = (queryResult) => {
   let countryInput = country.value.toLowerCase();
-  let queryResultLowerCase = queryResult.toLowerCase();
+  let query = queryResult.toLowerCase();
 
-  return `${queryResult.slice(
-    0,
-    queryResultLowerCase.indexOf(countryInput)
-  )}<strong>${countryInput}</strong>${queryResult.slice(
-    queryResultLowerCase.indexOf(countryInput) + countryInput.length
-  )}`;
+  const firstPart = queryResult.slice(0, query.indexOf(countryInput));
+  const boldPart = `<strong>${countryInput}</strong>`;
+  const lastPart = queryResult.slice(
+    query.indexOf(countryInput) + countryInput.length
+  );
+
+  return firstPart + boldPart + lastPart;
 };
