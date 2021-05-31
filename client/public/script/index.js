@@ -1,14 +1,17 @@
 const country = document.getElementById("country");
 const result = document.getElementById("result");
+const loading = document.getElementById("loading");
 
 const xhr = new XMLHttpRequest();
 
 country.addEventListener("keyup", () => {
   const search = country.value;
-
+  loading.style.display = "inline-block";
+  result.innerHTML = "";
   if (search !== "") {
     xhr.addEventListener("load", () => {
       result.innerHTML = "";
+      loading.style.display = "none";
       const response = JSON.parse(xhr.responseText);
 
       response.forEach((element) => {
@@ -26,6 +29,7 @@ country.addEventListener("keyup", () => {
     xhr.send();
   } else {
     result.innerHTML = "";
+    loading.style.display = "none";
   }
 });
 

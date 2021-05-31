@@ -1,5 +1,6 @@
 .result{
   text-align:center;
+  margin-top: 6%;
 }
 
 .country-result:hover{
@@ -10,4 +11,17 @@
 
 .colorBold{
   color: red;
+}
+
+.loading {
+  width: 100px;
+  display:none;
+  margin-top:16%;
+}
+
+
+.fijar{
+  position:fixed;
+  top: 1px;
+  margin-top:0px
 }
